@@ -5,7 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: printing hello world
-        run: echo "Ahmed Elsayed Saying Hello"
+        run: |
+          echo "Ahmed Elsayed Saying Hello"
+          echo "I love Programming"
         
       - name: printing goodbye
         run: echo "Ahmed Elsayed Saying Goodbye"
