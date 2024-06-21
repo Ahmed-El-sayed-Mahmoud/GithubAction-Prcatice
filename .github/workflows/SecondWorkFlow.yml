@@ -15,7 +15,9 @@ jobs:
                 cd ./"React Project"
                 npm ci
             - name: Testing
-              run: npm test
+              run: |
+                cd ./"React Project"
+                npm test
             
 
 
