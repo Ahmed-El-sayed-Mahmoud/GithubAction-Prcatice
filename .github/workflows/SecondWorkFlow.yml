@@ -1,5 +1,9 @@
 name: React Test
-on: push
+on:
+    issues:
+        types: [opened,closed]
+    push:
+    workflow_dispatch:
 jobs:
     testing:
         runs-on: ubuntu-latest
