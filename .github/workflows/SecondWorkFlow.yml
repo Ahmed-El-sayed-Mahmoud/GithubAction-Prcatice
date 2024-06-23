@@ -57,7 +57,10 @@ jobs:
       needs: [deployment]
       steps:
         - name: Download artifact
-          run: ls
+          uses: actions/download-artifact@v3
+          #with: 
+            #name: dist-files
+            #path: ./"React Project"
 
 
             
