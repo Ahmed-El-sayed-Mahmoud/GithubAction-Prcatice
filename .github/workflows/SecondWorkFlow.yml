@@ -17,6 +17,12 @@ jobs:
               uses: actions/setup-node@v4
               with: 
                 node-version: 18
+            - name: Caching Dependencies
+              uses: actions/cache@v3
+              with:
+                path: ~/.npm
+                key: deps-npm-${{ hashFiles('**/package-lock.json') }}
+
             - name: Instaling Dependcies
               run: |
                 cd ./"React Project"
@@ -38,6 +44,11 @@ jobs:
               uses: actions/setup-node@v4
               with: 
                 node-version: 18
+            - name: Caching Dependencies
+              uses: actions/cache@v3
+              with:
+                path: ~/.npm
+                key: deps-npm-${{ hashFiles('**/package-lock.json') }}
             - name: Instaling Dependcies
               run: |
                 cd ./"React Project"
