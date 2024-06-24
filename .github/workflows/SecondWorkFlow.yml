@@ -9,6 +9,7 @@ on:
     workflow_dispatch:
 jobs:
     testing:
+        environment: Testing
         runs-on: ubuntu-latest
         steps:
             - name: Download Code
@@ -31,6 +32,8 @@ jobs:
               run: |
                 cd ./"React Project"
                 npm test
+            - name: printing env secret
+              run: echo ${{secrets.PASSWORD}}
     
     deployment:
         outputs: 
