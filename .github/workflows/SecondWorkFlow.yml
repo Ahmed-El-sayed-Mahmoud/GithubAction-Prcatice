@@ -27,6 +27,8 @@ jobs:
                 npm test
     
     deployment:
+        outputs: 
+          js_file_name: ${{steps.js.outputs.script-file}}
         runs-on: ubuntu-latest
         needs: [testing]
         steps:
@@ -45,9 +47,10 @@ jobs:
                 cd ./"React Project"
                 npm run build
             - name: Publish JS file
+              id: js
               run: |
                 cd ./"React Project"
-                find dist/assets/*.js -type f -execdir echo '{}' ';'  
+                find dist/assets/*.js -type f -execdir echo 'script-file={}' >> GITHUB_OUTPUT';'  
             - name: Deployment
               run: echo "Deploying Project to Production"
             - name: Upload Artifacts
@@ -64,6 +67,8 @@ jobs:
           uses: actions/download-artifact@v3
           with: 
             name: dist-files
+        - name: Printing file name
+          run: echo ${{needs.deployment.outputs.js_file_name}}
 
 
             
