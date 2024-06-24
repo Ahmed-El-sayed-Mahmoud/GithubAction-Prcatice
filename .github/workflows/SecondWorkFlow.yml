@@ -50,7 +50,7 @@ jobs:
               id: js
               run: |
                 cd ./"React Project"
-                find dist/assets/*.js -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT';'  
+                find dist/assets/*.js -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'  
             - name: Deployment
               run: echo "Deploying Project to Production"
             - name: Upload Artifacts
